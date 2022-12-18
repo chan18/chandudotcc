@@ -1,0 +1,111 @@
+@inherits StatiqRazorPage<IDocument>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  @* page title *@
+  <title>@Document.GetString("PageTitle")</title>
+
+  @* url path *@
+  <link rel="canonical" href="@Document.GetLink(true)">
+
+  @{
+    @foreach (IDocument rssFeed in Outputs["**/*.rss"])
+    {
+      <link type="application/rss+xml" rel="alternate" title="@rssFeed.GetString(WebKeys.Title)"
+      href="@rssFeed.GetLink()" />
+    }
+    @foreach (IDocument atomFeed in Outputs["**/*.atom"])
+    {
+      <link type="application/atom+xml" rel="alternate" title="@atomFeed.GetString(WebKeys.Title)"
+      href="@atomFeed.GetLink()" />
+    }
+  }
+
+  @* SEO meta tags *@
+  <meta name="application-name" content="@Document.GetString("SiteTitle")" />
+  <meta name="msapplication-tooltip" content="@Document.GetString("SiteTitle")" />
+  <meta name="msapplication-starturl" content="@Context.GetLink("/")" />
+
+  @* TODO: More social graph meta tags *@
+  <meta property="og:title" content="@Document.GetString("PageTitle")" />
+  @if (Document.ContainsKey(WebKeys.Image))
+  {
+    <meta property="og:image" content="@Context.GetLink(Document.GetString(WebKeys.Image))" />
+  }
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="@Document.GetLink(true)" />
+
+  <link rel="shortcut icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
+  <link rel="icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
+
+  @* load tailwind css *@
+  <link href="@Context.GetLink("/css/site.css")" rel="stylesheet" />
+
+  <link href="@Context.GetLink("/css/wave.css")" rel="stylesheet">
+
+
+  @* syntax highlighter *@
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js"
+    data-no-mirror></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
+
+  @Html.Partial("_head")
+
+  @RenderSection("Head", false)
+
+</head>
+
+<body >
+  @* Navigation *@
+  @RenderSectionOrPartial("Navigation", "_navigation")
+
+  @* Page Header *@
+  @RenderSectionOrPartial("Header","_header")
+
+  @* Main Content *@
+  <div>
+
+  </div>
+
+  <div class="p-4 lg:flex lg:flex-row">
+    
+  <div class="mx-auto lg:container lg:px-4 lg:px-0 lg:max-w-6xl">
+    <div class="">
+      
+      <div id="postType" class="p-3 bg-gray-100 border border-gray-200 rounded-lg">
+        @RenderBody()
+      </div>
+    </div>
+  </div> 
+   <div class="">    
+    @RenderSectionOrPartial("socialmedia", "_socialmedia")      
+   </div>
+  </div>
+  @* Footer *@
+  @RenderSectionOrPartial("Footer", "_footer")
+  
+  @* javascript *@
+
+  @* partial scripts *@
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-31T86MT6X3"></script>
+  @Html.Partial("_scripts")
+  @RenderSection("Scripts", false)
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>   
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+  <script src="@Context.GetLink("/js/navigation.js")"></script>
+  <script src="@Context.GetLink("/js/google-analytics.js")"></script>
+
+</body>
+
+</html>

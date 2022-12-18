@@ -1,0 +1,102 @@
+@*
+  Note: -
+  1. no background images for the post.
+*@
+
+@{
+  // get the background image
+  // TODO: the current styles do not support background images.
+  string backgroundImage = null;
+  if (Document.ContainsKey(WebKeys.Image))
+  {
+    backgroundImage = $"background-image: url(\"{Context.GetLink(Document.GetString(WebKeys.Image))}\")";
+  }
+
+  // description for the blog post
+  string description = Document.WithoutSettings().GetString("Lead") ??
+  Document.WithoutSettings().GetString(WebKeys.Description);
+
+  // title of the blog post
+  string title = Document.GetString("Title") ?? Document.GetString("SiteTitle");
+
+  // blog post boolen
+  bool isPost = Document.GetBool("IsPost") && title != "Tags" && title != "Archive";
+}
+
+@* Todo: refactor the razer way, loop the outputpages, *@
+@* Todo: *@
+<header class="">
+
+  @* TODO: renders the chandu site name on the right side and style it *@
+  @* <a class="navbar-brand" href="@Context.GetLink("/")">@Context.GetString("SiteTitle")</a> *@
+
+  <div class="lg:hidden relative p-2 bg-gray-900" style="min-height: 50vh;">
+
+    <div class="flex justify-between">
+
+      <a class="text-white text-xl" href="@Context.GetLink("/")"> @Context.GetString("SiteTitle") </a>
+
+      <!-- navbar -->
+      <a href="#" class="flex space-x-2 items-center mobile-menu-button">
+        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20"
+          height="20" viewBox="0 0 20 20">
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+        <span class="text-white text-xl"> Menu </span>
+      </a>
+
+    </div>
+
+     @* hero section content *@
+    <div class="bg-gray-900 py-20 pl-4 text-white block lg:hidden">
+
+      <h1 class="text-5xl font-bold"> @title </h1>
+
+      @if (Document.GetInt(Keys.Index) > 1)
+      {
+        <small>(Page @Document.GetString(Keys.Index))</small>
+      }
+
+      <p class="text-4xl font-semibold mt-1"> @description </p>
+
+      @if (isPost)
+      {
+        <p class="text-2xl mt-4 z-50"> Published on @Document.GetDateTime(WebKeys.Published).ToLongDateString()
+        </p>
+
+        <div class="mt-2">
+
+          @if (Document.ContainsKey("Tags"))
+          {
+            <div class="mt-3">
+              @foreach (IDocument tag in Document
+                                          .GetList<string>("Tags")
+                                          .Select(x => Outputs["tags.html"].First()
+                                          .GetChildren()
+                                          .FirstOrDefault(y => y.GetTitle()
+                                          .Equals(x, StringComparison.OrdinalIgnoreCase)))
+                                          .Where(x => x != null))
+              {
+                <a href="@Context.GetLink(tag)" class="bg-white font-semibold p-1 text-black">
+                  @tag.GetTitle()
+                </a>
+              }
+            </div>
+          }
+
+        </div>
+      }
+
+    </div>
+  </div>
+
+  <!-- dropdown -->
+  <nav
+    class="px-10 sidebar absolute block bg-gray-900 inset-x-0 top-0 text-white font-semibold transform -translate-y-full lg:transform-none duration-200 ease-in-out lg:my-0 z-10"
+    id="menu">
+
+    @Html.Partial("_navbar")
+
+  </nav>
+
+</header>

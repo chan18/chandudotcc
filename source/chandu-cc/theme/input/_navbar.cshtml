@@ -1,0 +1,22 @@
+
+@* Note: -
+Get all output pages, Which are pages outsite the post folder.
+statiq will generate html for each page, Now we will collect this page names and load the navbar *@
+
+
+<ul class="lg:flex justify-end bg-gray-900">
+    @foreach(IDocument doc in OutputPages
+                              .GetChildrenOf("index.html")
+                              .Where(x => x.GetBool("ShowInNavbar", true))
+                              .OrderBy(x => x.GetInt(Keys.Order)))
+    {
+        // don't add home page.
+        if (doc.Destination != "index.html")
+        {
+            <li class="hover:bg-gray-300 hover:text-black px-5 py-3 uppercase duration-200 ease-in-out">
+                @Html.DocumentLink(doc, new Dictionary<object, object> { { "class", "nav-link" } })
+            </li>
+        }
+    }
+</ul>
+

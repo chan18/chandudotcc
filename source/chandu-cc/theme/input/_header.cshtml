@@ -1,0 +1,72 @@
+
+<!-- hero section -->
+
+@*
+ Note: -
+1. no background images for the post.
+ *@
+
+ @{
+     // get the background image
+     // TODO: the current styles do not support background images.
+     string backgroundImage = null;
+    if (Document.ContainsKey(WebKeys.Image))
+    {
+        backgroundImage = $"background-image: url(\"{Context.GetLink(Document.GetString(WebKeys.Image))}\")";
+    }
+
+     // description for the blog post
+     string description = Document.WithoutSettings().GetString("Lead") ?? Document.WithoutSettings().GetString(WebKeys.Description);
+
+    // title of the blog post
+    string title = Document.GetString("Title") ?? Document.GetString("SiteTitle");
+
+    // blog post boolen
+    bool isPost = Document.GetBool("IsPost") && title != "Tags" && title != "Archive";
+ }
+
+<section class="relative">
+
+    <div class="hidden py-20 pl-4 text-white bg-gray-900 pb-52 lg:block">
+
+        <h1 class="text-5xl font-bold"> @title </h1>
+
+        @if (Document.GetInt(Keys.Index) > 1)
+        {
+            <small>(Page @Document.GetString(Keys.Index))</small>
+        }
+
+        <p class="mt-1 text-4xl font-semibold"> @description </p>
+
+        @if(isPost)
+        {
+            <p class="z-50 mt-4 text-2xl"> Published on @Document.GetDateTime(WebKeys.Published).ToLongDateString() </p>
+
+            <div class="mt-2">
+
+                @if (Document.ContainsKey("Tags"))
+                {
+                    <div class="mt-3">
+                        @foreach (IDocument tag in Document
+                                                    .GetList<string>("Tags")
+                                                    .Select(x => Outputs["tags.html"].First()
+                                                    .GetChildren()
+                                                    .FirstOrDefault(y => y.GetTitle()
+                                                    .Equals(x, StringComparison.OrdinalIgnoreCase)))
+                                                    .Where(x => x != null))
+                        {
+                            <a href="@Context.GetLink(tag)" class="p-1 font-semibold text-black bg-white">
+                                @tag.GetTitle()
+                            </a>
+                        }
+                    </div>
+                }
+
+            </div>
+        }
+
+    </div>
+
+    @Html.Partial("_wave")
+
+</section>
