@@ -1,0 +1,1 @@
+dotnet run --project .\source\chandu-cc\chandu-cc.csproj -- preview
