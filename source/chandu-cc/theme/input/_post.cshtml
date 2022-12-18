@@ -1,0 +1,80 @@
+@model IDocument
+
+@{
+    string excerpt = Model.GetString(Statiq.Html.HtmlKeys.Excerpt);
+    string imageUrl = "/images/" + Model.GetString(WebKeys.Image);
+    string authroImage = "../../authorAvathors/chandrakanth.jpg";
+}
+
+<div class="">
+    <div class="relative m-2 duration-300 delay-150 bg-gray-100 rounded-lg md:bg-gray-200 hover:-translate-y-1 hover:scale-60 hover:bg-gray-800 hover:text-white hover:shadow-2xl">
+        <div class="flex flex-col p-4 md:flex-row md:justify-between ">
+
+        @if (imageUrl != "/images/")
+        {
+            @* blog cover *@
+            <div class="mb-10 md:hidden md:visible">
+                <img class="object-cover rounded-md md:rounded-full" src="@imageUrl" alt="Post Cover">
+            </div>
+        }
+
+        @if (Model.GetString("ImageUrl") != null)
+        {
+            @* blog cover *@
+            <div class="mb-10 md:hidden md:visible">
+                <img class="object-cover rounded-md md:rounded-full" src="@Model.GetString("ImageUrl")" alt="Post Cover">
+            </div>
+        }
+
+        @* content *@
+        <div class="">
+            @* post tag & post published on *@
+            <div class="flex flex-row items-center">
+                    <div class="px-3 py-1 mr-2 font-bold text-purple-400 bg-pink-100 rounded-lg shadow-lg shadow-purple-500/50">
+                        @Model.GetString("Tags")
+                    </div>
+            <span class="text-xs font-semibold">@Model.GetDateTime(WebKeys.Published).ToLongDateString()</span>
+        </div>
+
+        @* footer *@ 
+        <div class="flex flex-col flex-wrap my-1 space-y-1">
+                    @* post heading *@
+                <div class="text-2xl capitalize "> @Model.GetString("title") </div>
+                @if(Model.ContainsKey("Lead"))
+                {
+                    <span>@Model.GetString("Lead")</span>
+                }
+                @* post description *@
+                <div class="text-sm"> @Html.Raw(excerpt) </div>
+                </div>
+                @* footer  *@
+                <div class="flex items-center justify-start mt-10 space-x-2">
+                    <a href="@Model.GetLink()" class="p-2 text-xs font-medium bg-blue-600 shadow-lg rounded-2xl shadow-blue-500/50">
+                        <span class="text-white">Read Full Blog</span>
+                    </a>
+                    <img class="object-cover w-8 h-8 rounded-full " src="@authroImage" alt="office worker">
+                    <div class="flex flex-row space-x-1 text-sm font-medium">
+                    <span> by </span>
+                    <div>  @Model.GetString("By") </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (imageUrl != "/images/")
+            {
+                @* blog cover *@
+                <div class="flex-none hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-10 hover:scale-100 md:block">
+                    <img class="object-cover rounded-2xl max-h-72"  src="@imageUrl" alt="Post Cover">
+                </div>
+            }
+
+            @if (Model.GetString("ImageUrl") != null)
+            {
+                <div class="hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-10 hover:scale-100 md:block shrink-0">
+                    <img class="object-cover rounded-2xl max-h-72" src="@Model.GetString("ImageUrl")" alt="Post Cover">
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
