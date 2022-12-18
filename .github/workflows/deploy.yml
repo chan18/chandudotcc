@@ -2,7 +2,7 @@ name: Deploy Site
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["dev"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
 
     - name: run Tailwind to generate Site.css
       run: npm run tailwinds
-      working-directory: 'source/chandu-cc-tailwind'        
+      working-directory: 'source/chandu-cc-tailwind'
 
     - name: generate statiq site
       uses: actions/setup-dotnet@v1
@@ -53,7 +53,7 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v2
 
-    - name: Upload artifact
+    - name: Upload  
       uses: actions/upload-pages-artifact@v1
       with:
           # Upload entire repository
