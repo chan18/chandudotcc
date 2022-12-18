@@ -2,7 +2,7 @@ name: Deploy Site
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["dev"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -45,7 +45,7 @@ jobs:
     - name: generate statiq site
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.401' # SDK Version to use.
+        dotnet-version: '6.0.404' # SDK Version to use.
     - run: dotnet run --project ./source/chandu-cc/chandu-cc.csproj -- deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
