@@ -1,4 +1,6 @@
-﻿ 
+﻿using Statiq.App;
+using Statiq.Web;
+
  
  await Bootstrapper
             .Factory
