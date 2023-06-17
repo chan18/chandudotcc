@@ -5,19 +5,20 @@ Lead: I am a full stack engineer and open source enthusiastic
 
 > I mostly do full stack development in my job
 
-But i am interested in various different technologies in the computer science and software industry. These are some of the interesting areas that i blog, Talk and build my side project around.
+I specialize in full-stack development in my current role, but my passion for the computer science and software industry extends to various other technologies. I enjoy blogging, giving talks, and working on side projects related to the following areas:
 
-**Languages** c99, C#, Javascript, Typescript, SQL
+**Languages**: I have experience with c99, C#, Javascript, Typescript, and SQL.
 
-**frameworks** .Net Core, Angular
+**Frameworks**: My expertise includes working with .NET Core and Angular.
 
-**Computer Science** Automata Theory, Compiler Design, Operating system, Distributed and Cloud Computing, Networking and Security, Computer Architecture, Computer Graphics.
+**Computer Science**: I have a deep interest in Automata Theory, Compiler Design, Operating Systems, Distributed and Cloud Computing, Networking and Security, Computer Architecture, and Computer Graphics.
 
-**Software Development** Web application development, Open source Development, SDK Development, API development, Game Engine and Simulator Development,  Memory Hacking, System Design, Query optimization, Dev Tools.
+**Software Development**: My experience spans web application development, open-source development, SDK development, API development, game engine and simulator development, memory hacking, system design, query optimization, and dev tools.
 
 --------------------------
 
-**currently i am learning**
+**Currently, I am actively learning the following:**
+
 > Programming Languages
 
 [C# 9](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/)  
@@ -26,34 +27,34 @@ But i am interested in various different technologies in the computer science an
 
 > Math  
 
-Math-related to develop computer shaders and computer-generated art. Computer science algorithms and data structures ( algorithmic problem solving )  
+I am studying math related to developing computer shaders and computer-generated art, as well as computer science algorithms and data structures for algorithmic problem-solving.
 
 --------------------------
 
-**Side Projects I am working on**
+**Here are some of the side projects I am currently working on:**
 
-An angular and .Net project (private repo).  
-A Pomodoro timer.  
-Reverse engineering software that converts binary into readable code ( experimental and for learning experience )  
-Chandu.cc ( with tailwind )  
-Bunch of prototypes in my Github.  
-Chip-8 VM with typescript  
+- An Angular and .NET project (private repository)
+- A Pomodoro timer
+- Reverse engineering software that converts binary code into readable code (experimental and for learning purposes)
+- Chandu.cc (built with Tailwind CSS)
+- Several prototypes on my GitHub
+- Chip-8 VM with TypeScript
 
 --------------------------
 
 **Online Events**
 
-Online Events I am participating in currently Hacktoberfest   
+I am actively participating in the online event Hacktoberfest.
 
 --------------------------
 
-**Online courses I am have enrolled myself into**
+**Currently, I am enrolled in the following online courses:**
 
 [System Design](https://www.algoexpert.io/product)  
 [channel9](https://channel9.msdn.com/) I regularly check this website.  
 
 --------------------------
-**Books I am reading**
+**The books I am currently reading are:**
 
 [nmap network exploration and security auditing cook](https://www.packtpub.com/product/nmap-network-exploration-and-security-auditing-cook) (nmap/networking   
 for fun)  
@@ -62,16 +63,9 @@ for fun)
 
 --------------------------
 
-my Discord: chandu#9514
-> I hang out in the following discord servers 
-
-**Gaming servers**
-
-[Daima](https://discord.gg/4BwdV9WYYC) is primarily a casual gaming community everything is written in Russian.  
-[T90official](https://discord.gg/t90official)  
-[Battlefield](https://discord.gg/battlefield)  
-
-> Casual servers, tech servers etc..
+Feel free to reach out to me on Discord at chandu#9514. I'm an active member in various Discord servers, including:
+ 
+**Casual servers, tech servers etc..**
 
 [Alemayhu](https://discord.gg/tkP47Gu4rY)  
 [TheFreezeTeam](https://discord.gg/Q3UHhJudH7)  
@@ -88,22 +82,6 @@ my Discord: chandu#9514
 [Nano coin]()  
 [Remake](https://discord.gg/e8vMBScfcq)  
 [Keep On Coding](https://discord.gg/DkwcAWQ5Ue)  
-
-> I can’t list them all there are some two digits more servers but I mostly never check them.
-
-
-Gaming PC spec : 
-
-CPU: [INTEL I5-8600k](https://www.intel.in/content/www/in/en/products/sku/126685/intel-core-i58600k-processor-9m-cache-up-to-4-30-ghz/ordering.html)  
-GPU:  [GTX-1060 6bg](https://www.nvidia.com/en-in/geforce/products/10series/geforce-gtx-1060/)  
-RAM: DDR4 28GB 2400 MHZ  
-SSD: 500GB  
-HHD: 1TB  
-Mouse:  [logitech G403](https://www.logitechg.com/en-in/products/gaming-mice/g403-hero-gaming-mouse.910-005634.html)  
-Primary monitor: 144hz refresh rate [BenQ](https://zowie.benq.com/en/product/monitor/xl/xl2411p.html)  
-Secondary monitor: 60hz refresh rate dell  
-OS: Windows 10 pro  
-
 
 > Video games I am looking forward to play/playing.
 
