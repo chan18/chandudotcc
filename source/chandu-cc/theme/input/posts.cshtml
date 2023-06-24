@@ -8,20 +8,20 @@ ArchiveOrderDescending: true
     .GroupBy(x => x.GetDateTime(WebKeys.Published).Year)
     .OrderByDescending(x => x.Key))
 {
-    <span class="block text-5xl bg-gray-700 text-white p-2 m-2">@group.Key</span>
+    <span class="block p-2 m-2 text-5xl text-white bg-gray-700">@group.Key</span>
     foreach (IDocument post in group)
     {
         string excerpt = post.GetString(Statiq.Html.HtmlKeys.Excerpt);
         string imageUrl = "/images/" + post.GetString(WebKeys.Image);
 
         <div class="">
-            <div class="bg-gray-100 md:bg-gray-200 m-2 rounded-lg delay-150 hover:-translate-y-1 hover:scale-60 hover:bg-gray-800  hover:text-white hover:shadow-2xl  duration-300  relative">
-              <div class="flex flex-col md:flex-row md:justify-between p-4 ">
+            <div class="relative m-2 duration-300 delay-150 bg-gray-100 rounded-lg md:bg-gray-200 hover:-translate-y-1 hover:scale-60 hover:bg-gray-800 hover:text-white hover:shadow-2xl">
+              <div class="flex flex-col p-4 md:flex-row md:justify-between ">
 
                 @if (imageUrl != "/images/")
                 {
                     @* blog cover *@
-                    <div class="md:hidden mb-10 md:visible">
+                    <div class="mb-10 md:hidden md:visible">
                         <img class="object-cover rounded-md md:rounded-full" src="@imageUrl" alt="Post Cover">
                     </div>
                 }
@@ -29,7 +29,7 @@ ArchiveOrderDescending: true
                 @if (post.GetString("ImageUrl") != null)
                 {
                     @* blog cover *@
-                    <div class="md:hidden mb-10 md:visible">
+                    <div class="mb-10 md:hidden md:visible">
                         <img class="object-cover rounded-md md:rounded-full" src="@post.GetString("ImageUrl")" alt="Post Cover">
                     </div>
                 }
@@ -38,15 +38,14 @@ ArchiveOrderDescending: true
                 <div class="">
                     @* post tag & post published on *@
                     <div class="flex flex-row items-center">
-                    <div class="mr-2 bg-pink-100 py-1 px-3 rounded-lg  text-purple-400 font-bold
-                    shadow-lg shadow-purple-500/50">
+                    <div class="px-3 py-1 mr-2 font-bold text-purple-400 bg-pink-100 rounded-lg shadow-lg shadow-purple-500/50">
                         @post.GetString("Tags")
                     </div>
                     <span class="text-xs font-semibold">@post.GetDateTime(WebKeys.Published).ToLongDateString()</span>
                 </div>
 
                 @* footer *@ 
-                <div class="flex flex-col space-y-1 my-1 flex-wrap">
+                <div class="flex flex-col flex-wrap my-1 space-y-1">
                           @* post heading *@
                         <div class="text-2xl capitalize "> @post.GetString("title") </div>
                         @if(post.ContainsKey("Lead"))
@@ -57,13 +56,12 @@ ArchiveOrderDescending: true
                         <div class="text-sm"> @Html.Raw(excerpt) </div>
                         </div>
                         @* footer  *@
-                        <div class="flex justify-start space-x-2 items-center mt-10">
-                            <a href="@post.GetLink()" class="bg-blue-600 rounded-2xl p-2 text-xs font-medium
-                            shadow-lg shadow-blue-500/50">
+                        <div class="flex items-center justify-start mt-10 space-x-2">
+                            <a href="@post.GetLink()" class="p-2 text-xs font-medium bg-blue-600 shadow-lg rounded-2xl shadow-blue-500/50">
                                 <span class="text-white">Read Full Blog</span>
                             </a>
-                            <img class=" h-8 w-8 object-cover rounded-full" src="authorAvathors/chandrakanth.jpg" alt="office worker">
-                            <div class="flex flex-row space-x-1 text-sm  font-medium">
+                            <img class="object-cover w-8 h-8 rounded-full " src="authorAvathors/chandrakanth.jpg" alt="office worker">
+                            <div class="flex flex-row space-x-1 text-sm font-medium">
                             <span> by </span>
                             <div>  @post.GetString("By") </div>
                             </div>
@@ -73,14 +71,14 @@ ArchiveOrderDescending: true
                     @if (imageUrl != "/images/")
                     {
                         @* blog cover *@
-                        <div class="min-w-0 max-w-sm delay-150 hover:-translate-y-10 duration-300 hover:scale-100 hidden md:block flex-none">
+                        <div class="flex-none hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-2 hover:scale-100 md:block">
                             <img class="object-cover rounded-2xl max-h-72"  src="@imageUrl" alt="Post Cover">
                         </div>
                     }
 
                     @if (post.GetString("ImageUrl") != null)
                     {
-                        <div class="min-w-0 max-w-sm  delay-150 hover:-translate-y-10 duration-300 hover:scale-100 hidden md:block shrink-0">
+                        <div class="hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-2 hover:scale-100 md:block shrink-0">
                             <img class="object-cover rounded-2xl max-h-72" src="@post.GetString("ImageUrl")" alt="Post Cover">
                         </div>
                     }

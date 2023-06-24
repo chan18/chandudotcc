@@ -3,7 +3,7 @@ Description: Install/Enable Hyper-V on Windows
 Lead: Enable Hyper-v on windows
 Tags: [hyper-v,virtualization,Windows]
 IsPost: true
-Image: 
+Image: hyper-v.png
 By: Chandra kanth
 Published:
 ---
