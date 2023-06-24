@@ -46,7 +46,7 @@
 
                 @if (Document.ContainsKey("Tags"))
                 {
-                    <div class="mt-3">
+                    <div class="mt-3 space-x-2">
                         @foreach (IDocument tag in Document
                                                     .GetList<string>("Tags")
                                                     .Select(x => Outputs["tags.html"].First()
