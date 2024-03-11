@@ -28,6 +28,33 @@
     }
 }
 
+.background-gradient {
+  height: 100%;
+  width: 100%;
+  background: #263440 radial-gradient(#f0f0ed 5%, transparent 0);
+  background-size: 30px 30px;
+  -webkit-animation: diagonal-se 60s linear infinite;
+          animation: diagonal-se 60s linear infinite;
+}
+
+.background-gradient-light {
+  height: 100%;
+  width: 100%;
+  background: #f0f0ed radial-gradient(#575555 5%, transparent 0);
+  background-size: 30px 30px;
+  -webkit-animation: diagonal-se 60s linear infinite;
+          animation: diagonal-se 60s linear infinite;
+}
+
+.background-gradient-dark {
+  height: 100%;
+  width: 100%;
+  background: #1b1b1b radial-gradient(#575555 5%, transparent 0);
+  background-size: 30px 30px;
+  -webkit-animation: diagonal-se 60s linear infinite;
+          animation: diagonal-se 60s linear infinite;
+}
+
 
 .post-preview {
     > a {

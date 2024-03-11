@@ -2,7 +2,7 @@ Title: Azure management and governance
 Description: Describe Azure management and governance
 Lead: AZ-900
 Tags: [Azure,AZ-900]
-IsPost: false
+IsPost: true
 Image: 
 By: Chandra kanth
 Published: 
