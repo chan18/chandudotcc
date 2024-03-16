@@ -23,80 +23,45 @@
   bool isPost = Document.GetBool("IsPost") && title != "Tags" && title != "Archive";
 }
 
-@* Todo: refactor the razer way, loop the outputpages, *@
-@* Todo: *@
-<header class="">
+  @* Todo: refactor the razer way, loop the outputpages, *@
+  @* Todo: *@
 
   @* TODO: renders the chandu site name on the right side and style it *@
   @* <a class="navbar-brand" href="@Context.GetLink("/")">@Context.GetString("SiteTitle")</a> *@
 
-  <div class="relative p-2 bg-gray-900 lg:hidden" style="min-height: 50vh;">
 
-    <div class="flex justify-between">
 
-      <a class="text-xl text-white" href="@Context.GetLink("/")"> @Context.GetString("SiteTitle") </a>
 
-      <!-- navbar -->
-      <a href="#" class="flex items-center space-x-2 mobile-menu-button">
-        <svg class="text-white fill-current" xmlns="http://www.w3.org/2000/svg" width="20"
-          height="20" viewBox="0 0 20 20">
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+<!-- dropdown -->
+<nav class="sticky bg-slate-300 dark:text-white bg-opacity-10 backdrop-filter backdrop-blur-lg dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-lg   block inset-x-0 top-0  font-semibold transform lg:transform-none  lg:my-0 z-10 " id="menu">
+
+  <div class="flex lg:hidden justify-between p-5">
+
+
+    <a class="text-xl flex  items-center space-x-2" href="@Context.GetLink("/")"> 
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+                d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+            <path
+                d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
         </svg>
-        <span class="text-xl text-white"> Menu </span>
-      </a>
+      @Context.GetString("SiteTitle") 
+    </a>
 
-    </div>
+    
+    <!-- navbar -->
+    <a href="#" class="flex items-center space-x-2 mobile-menu-button">
+      <svg class=" fill-current" xmlns="http://www.w3.org/2000/svg" width="20"
+        height="20" viewBox="0 0 20 20">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+      <span class="text-xl "> Menu </span>
+    </a>
 
-     @* hero section content *@
-    <div class="block py-20 pl-4 text-white bg-gray-900 lg:hidden">
-
-      <h1 class="text-5xl font-bold"> @title </h1>
-
-      @if (Document.GetInt(Keys.Index) > 1)
-      {
-        <small>(Page @Document.GetString(Keys.Index))</small>
-      }
-
-      <p class="mt-1 text-4xl font-semibold"> @description </p>
-
-      @if (isPost)
-      {
-        <p class="z-50 mt-4 text-2xl"> Published on @Document.GetDateTime(WebKeys.Published).ToLongDateString()
-        </p>
-
-        <div class="mt-2">
-
-          @if (Document.ContainsKey("Tags"))
-          {
-            <div class="mt-3">
-              @foreach (IDocument tag in Document
-                                          .GetList<string>("Tags")
-                                          .Select(x => Outputs["tags.html"].First()
-                                          .GetChildren()
-                                          .FirstOrDefault(y => y.GetTitle()
-                                          .Equals(x, StringComparison.OrdinalIgnoreCase)))
-                                          .Where(x => x != null))
-              {
-                <a href="@Context.GetLink(tag)" class="p-1 font-semibold text-black bg-white">
-                  @tag.GetTitle()
-                </a>
-              }
-            </div>
-          }
-
-        </div>
-      }
-
-    </div>
   </div>
 
-  <!-- dropdown -->
-  <nav
-    class="absolute inset-x-0 top-0 z-10 block px-10 font-semibold text-white duration-200 ease-in-out transform -translate-y-full bg-gray-900 sidebar lg:transform-none lg:my-0"
-    id="menu">
 
-    @Html.Partial("_navbar")
+  @Html.Partial("_navbar")
 
-  </nav>
+</nav>
 
-</header>

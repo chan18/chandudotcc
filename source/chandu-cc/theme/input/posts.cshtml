@@ -3,88 +3,106 @@ ArchiveFilter: => GetBool("IsPost")
 ArchiveOrderKey: Published
 ArchiveOrderDescending: true
 ---
-@foreach(IGrouping<int, IDocument> group in Document
-    .GetChildren()
-    .GroupBy(x => x.GetDateTime(WebKeys.Published).Year)
-    .OrderByDescending(x => x.Key))
-{
-    <span class="block p-2 m-2 text-5xl text-white bg-gray-700">@group.Key</span>
-    foreach (IDocument post in group)
+
+
+<section class="container mx-auto">
+    @foreach(IGrouping<int, IDocument> group in Document
+        .GetChildren()
+        .GroupBy(x => x.GetDateTime(WebKeys.Published).Year)
+        .OrderByDescending(x => x.Key))
     {
-        string excerpt = post.GetString(Statiq.Html.HtmlKeys.Excerpt);
-        string imageUrl = "/images/" + post.GetString(WebKeys.Image);
 
-        <div class="">
-            <div class="relative m-2 duration-300 delay-150 bg-gray-100 rounded-lg md:bg-gray-200 hover:-translate-y-1 hover:scale-60 hover:bg-gray-800 hover:text-white hover:shadow-2xl">
-              <div class="flex flex-col p-4 md:flex-row md:justify-between ">
+        <span class="block p-2 m-2 text-5xl text-white bg-slate-700 dark:bg-slate-800">@group.Key</span>
 
-                @if (imageUrl != "/images/")
-                {
-                    @* blog cover *@
-                    <div class="mb-10 md:hidden md:visible">
-                        <img class="object-cover rounded-md md:rounded-full" src="@imageUrl" alt="Post Cover">
-                    </div>
-                }
+        foreach (IDocument post in group)
+        {
+            string excerpt = post.GetString(Statiq.Html.HtmlKeys.Excerpt);
+            string imageUrl = "/images/" + post.GetString(WebKeys.Image);
 
-                @if (post.GetString("ImageUrl") != null)
-                {
-                    @* blog cover *@
-                    <div class="mb-10 md:hidden md:visible">
-                        <img class="object-cover rounded-md md:rounded-full" src="@post.GetString("ImageUrl")" alt="Post Cover">
-                    </div>
-                }
+            
+            <div class="delay-150 duration-300">
+                <div class="delay-150 duration-300">
+                    <div class="relative m-2 rounded-lg bg-slate-100 dark:bg-slate-800 dark:text-white drop-shadow-sm  hover:bg-slate-50 dark:hover:bg-slate-950">
+                        <div class="flex flex-col p-4 md:flex-row md:justify-between">
 
-                @* content *@
-                <div class="">
-                    @* post tag & post published on *@
-                    <div class="flex flex-row items-center">
-                    <div class="px-3 py-1 mr-2 font-bold text-purple-400 bg-pink-100 rounded-lg shadow-lg shadow-purple-500/50">
-                        @post.GetString("Tags")
-                    </div>
-                    <span class="text-xs font-semibold">@post.GetDateTime(WebKeys.Published).ToLongDateString()</span>
-                </div>
+                            @if (imageUrl != "/images/")
+                            {
+                                @* blog cover *@
+                                <div class="mb-10 md:hidden md:visible">
+                                    <img class="object-cover rounded-md md:rounded-full" src="@imageUrl" alt="Post Cover">
+                                </div>
+                            }
+                            
+                            @if (post.GetString("ImageUrl") != null)
+                            {
+                                @* blog cover *@
+                                <div class="mb-10 md:hidden md:visible">
+                                    <img class="object-cover rounded-md md:rounded-full" src="@post.GetString("ImageUrl")" alt="Post Cover">
+                                </div>
+                            }
 
-                @* footer *@ 
-                <div class="flex flex-col flex-wrap my-1 space-y-1">
-                          @* post heading *@
-                        <div class="text-2xl capitalize "> @post.GetString("title") </div>
-                        @if(post.ContainsKey("Lead"))
-                        {
-                            <span>@post.GetString("Lead")</span>
-                        }
-                        @* post description *@
-                        <div class="text-sm"> @Html.Raw(excerpt) </div>
-                        </div>
-                        @* footer  *@
-                        <div class="flex items-center justify-start mt-10 space-x-2">
-                            <a href="@post.GetLink()" class="p-2 text-xs font-medium bg-blue-600 shadow-lg rounded-2xl shadow-blue-500/50">
-                                <span class="text-white">Read Full Blog</span>
-                            </a>
-                            <img class="object-cover w-8 h-8 rounded-full " src="authorAvathors/chandrakanth.jpg" alt="office worker">
-                            <div class="flex flex-row space-x-1 text-sm font-medium">
-                            <span> by </span>
-                            <div>  @post.GetString("By") </div>
+                            <div class="">
+
+                                <div class="flex flex-row items-center">
+                                    <div class="text-neutral-400 dark:text-neutral-800 rounded-full border-2 border-pink-200 bg-pink-100 px-2 py-1 text-xs font-semibold">
+                                        @post.GetString("Tags")
+                                    </div>
+                                    <span class="text-xs font-semibold">@post.GetDateTime(WebKeys.Published).ToLongDateString()</span>
+                                </div>
+
+                                <div class="my-1 flex flex-col flex-wrap space-y-1">
+                                    <div class="text-2xl capitalize "> @post.GetString("title") </div>
+                                    @if(post.ContainsKey("Lead"))
+                                    {
+                                        <span>@post.GetString("Lead")</span>
+                                    }
+                                    <div class="text-sm"> @Html.Raw(excerpt) </div>
+                                </div>
+                                
+
+                                <div class="mt-10 flex items-center justify-start space-x-2">
+                                    <a href="@post.GetLink()" class="flex flex-row items-center space-x-1 rounded-md bg-blue-600 p-2 font-medium shadow-md shadow-blue-500/50">
+                                        <span class="text-white">Read </span>
+                                        <svg class="h-4 w-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            fill="currentColor" class="h-6 w-6">
+                                            <path fill-rule="evenodd"
+                                                d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+
+                                    <img class="h-8 w-8 rounded-full object-cover"" src="authorAvathors/chandrakanth.jpg" alt="office worker">
+
+                                    <div class="flex flex-row space-x-1 text-sm font-medium">
+                                        <span> by </span>
+                                       <div>  @post.GetString("By") </div>
+                                    </div>
+                                </div>
+
                             </div>
+
+                            @if (imageUrl != "/images/")
+                            {
+                                @* blog cover *@
+                                <div class="flex-none hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-2 hover:scale-100 md:block">
+                                    <img class="object-cover rounded-2xl max-h-72"  src="@imageUrl" alt="Post Cover">
+                                </div>
+                            }
+
+                            @if (post.GetString("ImageUrl") != null)
+                            {
+                                <div class="hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-2 hover:scale-100 md:block shrink-0">
+                                    <img class="object-cover rounded-2xl max-h-72" src="@post.GetString("ImageUrl")" alt="Post Cover">
+                                </div>
+                            }
+                            
                         </div>
                     </div>
-
-                    @if (imageUrl != "/images/")
-                    {
-                        @* blog cover *@
-                        <div class="flex-none hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-2 hover:scale-100 md:block">
-                            <img class="object-cover rounded-2xl max-h-72"  src="@imageUrl" alt="Post Cover">
-                        </div>
-                    }
-
-                    @if (post.GetString("ImageUrl") != null)
-                    {
-                        <div class="hidden max-w-sm min-w-0 duration-300 delay-150 hover:-translate-y-2 hover:scale-100 md:block shrink-0">
-                            <img class="object-cover rounded-2xl max-h-72" src="@post.GetString("ImageUrl")" alt="Post Cover">
-                        </div>
-                    }
-
                 </div>
             </div>
-        </div>
+        
+        }
+
     }
-}
+</section>
+

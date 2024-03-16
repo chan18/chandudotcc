@@ -20,6 +20,8 @@
     fill: #FFFFFF;
 }
 
+
+
 /** For mobile devices **/
 @media (max-width: 767px) {
     .custom-shape-divider-bottom-1642627347 svg {
@@ -54,7 +56,6 @@
   -webkit-animation: diagonal-se 60s linear infinite;
           animation: diagonal-se 60s linear infinite;
 }
-
 
 .post-preview {
     > a {
@@ -96,6 +97,6 @@
         }
       }
     }
-  }
+}
 
   

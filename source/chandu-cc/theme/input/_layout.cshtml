@@ -1,7 +1,15 @@
 @inherits StatiqRazorPage<IDocument>
 
+@{
+     // title of the blog post
+    string title = Document.GetString("Title") ?? Document.GetString("SiteTitle");
+
+    // blog post boolen
+    bool isPost = Document.GetBool("IsPost") && title != "Tags" && title != "Archive";
+}
+
 <!DOCTYPE html>
-<html lang="en">
+<html class="" lang="en" >
 
 <head>
   <meta charset="utf-8" />
@@ -59,41 +67,85 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
 
-  @Html.Partial("_head")
+  @* head partial *@
+  @* @Html.Partial("_head")
 
-  @RenderSection("Head", false)
+  @RenderSection("Head", false) *@
 
 </head>
 
-<body class="">
+<body class="dark:bg-slate-700  delay-150 duration-300 ">
+
+  <div class="">
+      <div id="twitterMedia"
+          class="z-50 flex flex-row items-center justify-center fixed h-10 w-20 rounded-full bottom-0 right-0 animate-pulse">
+          <a class="cursor-pointer " id="myLink">
+              <!-- twitter -->
+              <svg class="h-8 w-8 fill-indigo-500 stroke-slate-200 dark:fill-white " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path
+                      d="M 2.3671875 3 L 9.4628906 13.140625 L 2.7402344 21 L 5.3808594 21 L 10.644531 14.830078 L 14.960938 21 L 21.871094 21 L 14.449219 10.375 L 20.740234 3 L 18.140625 3 L 13.271484 8.6875 L 9.2988281 3 L 2.3671875 3 z M 6.2070312 5 L 8.2558594 5 L 18.033203 19 L 16.001953 19 L 6.2070312 5 z">
+                  </path>
+              </svg>
+          </a>
+      </div>
+    
+      <div id="twitter" class="mx-10 z-50 fixed bottom-0 right-10 hidden">
+          <div class="">
+              <a class="twitter-timeline" data-width="300" data-height="400" data-tweet-limit=3
+                  href="https://twitter.com/chandudotcc?ref_src=twsrc%5Etfw">
+                  Tweets by chandudotcc
+              </a>
+          </div>
+      </div>
+  </div>
+
   @* Navigation *@
   @RenderSectionOrPartial("Navigation", "_navigation")
 
   @* Page Header *@
-  @RenderSectionOrPartial("Header","_header")
+  @RenderSectionOrPartial("Header", "_header")
 
   @* Main Content *@
   <div>
 
   </div>
 
-  <div class="p-4 lg:flex lg:flex-row">
-    
-  <div class="mx-auto lg:container lg:px-4 lg:px-0 lg:max-w-6xl">
+  <div class="">
     <div class="">
-      
-      <div id="postType" class="p-3 bg-gray-100 border border-gray-200 rounded-lg">
-        @RenderBody()
-      </div>
+        <div id="postType" class="">
+           @if (!isPost)
+          {
+              // on normal page 
+              @RenderBody()
+          }
+          else
+          {
+              // when the page we are on domain.com/posts than RenderBody
+              // hide the normal page
+              <div class="md:mx-auto px-6 py-12 md:max-w-3xl lg:max-w-4xl lg:pb-28 lg:pt-16  shadow-xl shadow-slate-600 overflow-hidden mx-auto prose prose-neutral dark:prose-invert  prose-hr:h-1 prose-hr:bg-gradient-to-r prose-hr:from-blue-600 prose-hr:via-green-500 prose-hr:to-indigo-400 prose-a:decoration-sky-500 prose-a:decoration-wavy prose-a:underline-offset-2 dark:prose-blockquote:border-white">
+                  @RenderBody()
+              </div>
+          }
+        </div>
     </div>
-  </div> 
-   <div class="">    
-    @RenderSectionOrPartial("socialmedia", "_socialmedia")      
-   </div>
+
+    @* <div class="">
+      @RenderSectionOrPartial("socialmedia", "_socialmedia")
+    </div> *@
+
   </div>
   @* Footer *@
   @RenderSectionOrPartial("Footer", "_footer")
+
+</body>
+
+<script>
   
+
+</script>
+
+
   @* javascript *@
 
   @* partial scripts *@
@@ -104,8 +156,10 @@
   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
   <script src="@Context.GetLink("/js/navigation.js")"></script>
+  <script src="@Context.GetLink("/js/twitter.js")"></script>  
+  <script src="@Context.GetLink("/js/table.js")"></script>
+   <script src="@Context.GetLink("/js/dark-light-theme.js")"></script>
   <script src="@Context.GetLink("/js/google-analytics.js")"></script>
 
-</body>
 
 </html>

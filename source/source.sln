@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chandu-cc", "chandu-cc\chandu-cc.csproj", "{DEF5299A-5706-411E-9E6A-84C8B7A2CC28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chandu-cc-tailwind", "chandu-cc-tailwind\chandu-cc-tailwind.csproj", "{1D297B2E-AE2E-4F3E-B9F0-F4FC3C5F91BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEF5299A-5706-411E-9E6A-84C8B7A2CC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF5299A-5706-411E-9E6A-84C8B7A2CC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF5299A-5706-411E-9E6A-84C8B7A2CC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF5299A-5706-411E-9E6A-84C8B7A2CC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D297B2E-AE2E-4F3E-B9F0-F4FC3C5F91BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D297B2E-AE2E-4F3E-B9F0-F4FC3C5F91BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D297B2E-AE2E-4F3E-B9F0-F4FC3C5F91BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D297B2E-AE2E-4F3E-B9F0-F4FC3C5F91BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1B96ABE-789E-495E-9D0E-F0665B48AD62}
+	EndGlobalSection
+EndGlobal
