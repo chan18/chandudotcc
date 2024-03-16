@@ -13,7 +13,7 @@ ArchiveTitle: => GetString("GroupKey")
 @if (Document.ContainsKey(Keys.GroupKey))
 {
     <div class="">
-        <div class="">
+        <div class="container mx-auto">
             <div class="py-4 flex flex-wrap">
 
                 @foreach (IDocument tag in OutputPages
@@ -59,7 +59,7 @@ ArchiveTitle: => GetString("GroupKey")
 }
 else
 {
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap container mx-auto">
         @foreach (IDocument tag in Document
                                     .GetChildren()
                                     .OrderByDescending(x => x.GetChildren()
