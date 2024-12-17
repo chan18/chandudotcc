@@ -6,3 +6,4 @@
 4. dotnet run --project .\source\chandu-cc\chandu-cc.csproj -- preview
 
 
+5. npm run tailwinds-watch

@@ -21,6 +21,8 @@
     // title of the blog post
     string title = Document.GetString("Title") ?? Document.GetString("SiteTitle");
 
+    title = title.Equals("Input") ? "Hi 👋" : title;
+
     // blog post boolen
     bool isPost = Document.GetBool("IsPost") && title != "Tags" && title != "Archive";
  }
