@@ -5,7 +5,7 @@ Tags: [vagrant,hyper-v,virtualization,Windows,ubuntu,virtualbox]
 IsPost: true
 Image: vagrant-vbox.jpeg
 By: Chandra kanth
-Published: 20-07-2023
+Published: 20 July 2023
 ---
 
 # Introduction
