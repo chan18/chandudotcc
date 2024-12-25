@@ -1,11 +1,11 @@
 Title: SWE at google
 Description: 
 Lead: SWE at google Key Insights
-Tags: [SWE,culture,organization,company]
+Tags: [SWE,culture,organization,company,book]
 IsPost: true
-Image: 
+Image: culture.png
 By: Chandra kanth
-Published: 
+Published: 15 December 2024
 ---
 
 # Culture
