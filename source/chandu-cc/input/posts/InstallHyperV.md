@@ -5,7 +5,7 @@ Tags: [hyper-v,virtualization,Windows]
 IsPost: true
 Image: hyper-v.png
 By: Chandra kanth
-Published:
+Published: 21 July 2023
 ---
 
 # Enabling Hyper-V on windows
