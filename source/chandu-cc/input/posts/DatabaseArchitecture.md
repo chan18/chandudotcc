@@ -1,6 +1,6 @@
-Title: Database Management Systems
+Title: Database Management Systems intro
 Description: 
-Lead: Database management systesms
+Lead: introduction
 Tags: DBMS
 IsPost: true
 Image: database-architecture.png
