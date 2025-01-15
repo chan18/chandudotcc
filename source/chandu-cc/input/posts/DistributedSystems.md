@@ -57,6 +57,7 @@ Ways to synchronize clocks in distributed systems based on exchanging clock valu
 
 Related events at different process happening in the correct order 
 
+
 **Logical clocks** it is possible for a collection of process to reach global agreement on the correct ordering of events
 
 ```
