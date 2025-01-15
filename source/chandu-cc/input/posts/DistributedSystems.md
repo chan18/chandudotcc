@@ -57,6 +57,7 @@ Ways to synchronize clocks in distributed systems based on exchanging clock valu
 
 Related events at different process happening in the correct order 
 
+
 **Logical clocks** it is possible for a collection of process to reach global agreement on the correct ordering of events
 
 ```
@@ -81,7 +82,7 @@ It is achieved with the help of a **coordinator**  that keeps track of whose tur
 
 ### problem with clocks
 
-<a href="/images/distributedsystems/sync-clock-problem.png"><img src="/images/distributedsystems/sync-clock-problem.png"/></a>
+<a href="/images/distributedsystems1/sync-clock-problem.png"><img src="/images/distributedsystems1/sync-clock-problem.png"/></a>
 
 Synchronization between nodes only achieved with help of one nodes which acts as a coordinator 
 
@@ -102,7 +103,7 @@ usually matters is not that all processes agree on exactly what time it is, but 
 
 ## Lamport’s logical clocks
 
-<a href="/images/distributedsystems/lamport-clock.png"><img src="/images/distributedsystems/lamport-clock.png"/></a>
+<a href="/images/distributedsystems1/lamport-clock.png"><img src="/images/distributedsystems1/lamport-clock.png"/></a>
 
 ### Relationship  
 
@@ -183,7 +184,7 @@ Example :
 **Totally ordered multicasting**
 
 
-<a href="/images/distributedsystems/totall-order-multicasting.png"><img src="/images/distributedsystems/totall-order-multicasting.png"/></a>
+<a href="/images/distributedsystems1/totall-order-multicasting.png"><img src="/images/distributedsystems1/totall-order-multicasting.png"/></a>
 
 
 situations in which the database has been replicated across several zones. 
@@ -223,7 +224,7 @@ That is C(a) \< C(b)
 
 There is not relationship between two events a and b by merely comparing their time values C(a) and C(b) 
 
-<a href="/images/distributedsystems/vector-clocks.png"><img src="/images/distributedsystems/vector-clocks.png"/></a>
+<a href="/images/distributedsystems1/vector-clocks.png"><img src="/images/distributedsystems1/vector-clocks.png"/></a>
 
 Message _i  == message _1  
 And message _j  = message _3
@@ -245,7 +246,7 @@ Two local events happened at node p
 Then  
 The casual history H(node _2) of event node _2 is {node _1,node _2 }
 
-<a href="/images/distributedsystems/casual-history.png"><img src="/images/distributedsystems/casual-history.png"/></a>
+<a href="/images/distributedsystems1/casual-history.png"><img src="/images/distributedsystems1/casual-history.png"/></a>
 
 time _stamp(message _2)  < time _stamp(message _4) message _2 may casually precede message _4
 
@@ -351,7 +352,7 @@ When we do not know which node have access data we do omit the index symbols fro
  
 Behavior of two processes operating on the same data time
 
-<a href="/images/distributedsystems/sequential-consistency.png"><img src="/images/distributedsystems/sequential-consistency.png"/></a>
+<a href="/images/distributedsystems1/sequential-consistency.png"><img src="/images/distributedsystems1/sequential-consistency.png"/></a>
 
 **Diagram explained** :   
 Node\_1 writes data item x, modifying its value to a. 
@@ -378,7 +379,7 @@ Operations that are not causally related are said to be **concurrent**.
 * Violation of causally consistent store   
 * A correct sequence of events in a causally consistent store.
 
-<a href="/images/distributedsystems/casual-consistency.png"><img src="/images/distributedsystems/casual-consistency.png"/></a>
+<a href="/images/distributedsystems1/casual-consistency.png"><img src="/images/distributedsystems1/casual-consistency.png"/></a>
 
 
 **Violation of causally consistent store** 
@@ -448,7 +449,7 @@ further coordination.
 *on x by that process will always return that same value or a more recent*  
 *value*
 
-<a href="/images/distributedsystems/monotonic-reads.png"><img src="/images/distributedsystems/monotonic-reads.png"/></a>
+<a href="/images/distributedsystems1/monotonic-reads.png"><img src="/images/distributedsystems1/monotonic-reads.png"/></a>
 
 Explaining figure : 
 
@@ -462,7 +463,7 @@ local\_data\_store\_2
 *A write operation by a process on a data item x is completed before any*  
 *successive write operation on x by the same pr*ocess
 
-<a href="/images/distributedsystems/monotonic-writes.png"><img src="/images/distributedsystems/monotonic-writes.png"/></a>
+<a href="/images/distributedsystems1/monotonic-writes.png"><img src="/images/distributedsystems1/monotonic-writes.png"/></a>
 
 # Read your writes
 
@@ -470,7 +471,7 @@ local\_data\_store\_2
 The effect of a write operation by a process on data item x will always be  
 seen by a successive read operation on x by the same process.
 
-<a href="/images/distributedsystems/read-your-writes.png"><img src="/images/distributedsystems/read-your-writes.png"/></a>
+<a href="/images/distributedsystems1/read-your-writes.png"><img src="/images/distributedsystems1/read-your-writes.png"/></a>
 
 # Write follow reads
 
@@ -479,7 +480,7 @@ A write operation by a process on a data item x following a previous read
 operation on x by the same process is guaranteed to take place on the same  
 or a more recent value of x that was read.
 
-<a href="/images/distributedsystems/write-follow-reads.png"><img src="/images/distributedsystems/write-follow-reads.png"/></a>
+<a href="/images/distributedsystems1/write-follow-reads.png"><img src="/images/distributedsystems1/write-follow-reads.png"/></a>
 
 ---
 ## Fault tolerance
@@ -541,7 +542,7 @@ is one that continues to exist until the faulty compo-nent is replaced
 Response failure occurs occurs when responding to an incoming request but in the wrong way   
 Very difficult failure to handle is **byzantine failures,** also known as **arbitrary failures**  
 
-<a href="/images/distributedsystems/failure_model.png"><img src="/images/distributedsystems/failure_model.png"/></a>
+<a href="/images/distributedsystems1/failure_model.png"><img src="/images/distributedsystems1/failure_model.png"/></a>
 
 | Type of Failure        | Description of Server's Behavior                                    |
 |------------------------|----------------------------------------------------------------------|
@@ -635,9 +636,9 @@ If a participant receives a **GLOBAL-COMMIT** message.
 It locally commits the transaction.  
 When receiving a **GLOBAL-COMMIT** message, the transaction is locally aborted as well.
 
-<a href="/images/distributedsystems/finite-state-machine-2pc.png"><img src="/images/distributedsystems/finite-state-machine-2pc.png"/></a>
+<a href="/images/distributedsystems1/finite-state-machine-2pc.png"><img src="/images/distributedsystems1/finite-state-machine-2pc.png"/></a>
 
-<a href="/images/distributedsystems/finite-state-machine-participant.png"><img src="/images/distributedsystems/finite-state-machine-participant.png"/></a>
+<a href="/images/distributedsystems1/finite-state-machine-participant.png"><img src="/images/distributedsystems1/finite-state-machine-participant.png"/></a>
 
 ## Atomic multicast
 
@@ -652,7 +653,7 @@ A model in which the distributed system consists of message-handling components
 
 A received message is locally buffered in the component until it can be delivered to the application.
 
-<a href="/images/distributedsystems/principle_synchronous_multicast.png"><img src="/images/distributedsystems/principle_synchronous_multicast.png"/></a>
+<a href="/images/distributedsystems1/principle_synchronous_multicast.png"><img src="/images/distributedsystems1/principle_synchronous_multicast.png"/></a>
 
 **Message ordering**  
 Unordered multicast  
@@ -722,7 +723,7 @@ By logging the communication between nodes/processes it is possible to replay th
 To restore such a recorded state when system failed, each time the system present state is recorded a **checkpoint** is made
 
 
-<a href="/images/distributedsystems/checkpoint.png"><img src="/images/distributedsystems/checkpoint.png"/></a>
+<a href="/images/distributedsystems1/checkpoint.png"><img src="/images/distributedsystems1/checkpoint.png"/></a>
 
 Another form of error recovery is **forward recovery** in this case, when the system has entered an erroneous state, instead of moving back to a previous state. 
 
@@ -731,5 +732,5 @@ Problem with forward recovery is that it has to be known in advance which error 
 
  message logging orphan process
 
-<a href="/images/distributedsystems/orphan_process.png"><img src="/images/distributedsystems/orphan_process.png"/></a>
+<a href="/images/distributedsystems1/orphan_process.png"><img src="/images/distributedsystems1/orphan_process.png"/></a>
 
