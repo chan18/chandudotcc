@@ -6,6 +6,12 @@
 
     // blog post boolen
     bool isPost = Document.GetBool("IsPost") && title != "Tags" && title != "Archive";
+
+    string pageTitle = Document.GetString("PageTitle");
+
+    if (pageTitle == "chandu - Input") {
+       pageTitle = ""; 
+    }
 }
 
 <!DOCTYPE html>
@@ -16,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   @* page title *@
-  <title>@Document.GetString("PageTitle")</title>
+  <title>@pageTitle</title>
 
   @* url path *@
   <link rel="canonical" href="@Document.GetLink(true)">
@@ -40,7 +46,7 @@
   <meta name="msapplication-starturl" content="@Context.GetLink("/")" />
 
   @* TODO: More social graph meta tags *@
-  <meta property="og:title" content="@Document.GetString("PageTitle")" />
+  <meta property="og:title" content="@pageTitle" />
   @if (Document.ContainsKey(WebKeys.Image))
   {
     <meta property="og:image" content="@Context.GetLink(Document.GetString(WebKeys.Image))" />
