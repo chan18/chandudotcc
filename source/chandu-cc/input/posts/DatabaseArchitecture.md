@@ -24,7 +24,12 @@ There are many things I want to write in detail about the database system, I wan
 
 # Database Architectures 
 
-# Types of Database systems
+## Types of Database systems
+
+* centralized database system
+* decentralized database system
+* parallel database system
+* distributed database system
 
 ## Centralized database systems 
 
