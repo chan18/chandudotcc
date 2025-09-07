@@ -11,7 +11,7 @@ Title: Tags
 ArchiveTitle: => GetString("GroupKey")
 ---
 @{
-    string style = "inline-block px-3 py-1 text-sm font-semibold rounded-full border border-gray-300 bg-white transition duration-300 ease-out transform  dark:border-gray-600 dark:bg-gray-900  bg-gradient-to-bl from-pink-500 via-gray-700 to-slate-800 bg-clip-text text-transparent dark:bg-gradient-to-bl dark:from-pink-400 dark:via-neutral-200 dark:to-slate-400 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30 dark:hover:bg-gray-800 dark:hover:shadow-pink-400/20 hover:bg-gradient-to-tr";
+    string style = "m-2 inline-block px-3 py-1 text-sm font-semibold rounded-full border border-gray-300 bg-white cursor-pointer transition duration-300 ease-out transform hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30 dark:border-gray-600 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:shadow-pink-400/20 bg-gradient-to-bl from-pink-500 via-gray-700 to-slate-800 bg-clip-text text-transparent dark:bg-gradient-to-bl dark:from-pink-400 dark:via-neutral-200 dark:to-slate-400 hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 hover:text-white hover:bg-clip-border dark:hover:bg-gradient-to-r dark:hover:from-pink-600 dark:hover:to-purple-800 dark:hover:text-neutral-100 ";
 }
 
 @if (Document.ContainsKey(Keys.GroupKey))
@@ -31,7 +31,7 @@ ArchiveTitle: => GetString("GroupKey")
                     string badgeStyle = Document
                                     .GetString(Keys.GroupKey)
                                     .Equals(tag.GetTitle(), StringComparison.OrdinalIgnoreCase) 
-                                    ? style + " motion-preset-confetti scale-105 shadow-lg shadow-pink-500/30 bg-gray-800 bg-gradient-to-tr dark:shadow-pink-400/20"
+                                    ? style + " motion-preset-confetti scale-105 shadow-lg shadow-pink-500/30 bg-gray-800 bg-gradient-to-tr dark:shadow-pink-400/20 "
                                     : style + "";
 
                     string postCount = tag

@@ -43,11 +43,9 @@
 
     <div id="hero-content" class="relative z-10 mx-auto max-w-5xl px-6 text-center mt-16">
 
-        <h1 id="hero-title" 
-  class="mx-auto max-w-4xl text-2xl font-bold md:text-4xl lg:text-6xl leading-snug 
-         bg-gradient-to-bl from-pink-500 via-gray-700 to-slate-800 bg-clip-text text-transparent
-         dark:bg-gradient-to-bl dark:from-pink-400 dark:via-neutral-200 dark:to-slate-400 ">
-        </h1>
+<h1 id="hero-title" 
+  class="mx-auto max-w-4xl text-2xl font-bold md:text-4xl lg:text-6xl leading-snug  ">
+</h1>
 
 
         @if (isDefault)
@@ -142,16 +140,18 @@
 
 
                         <a href="@Context.GetLink(tag)" 
-                        class=" m-2 inline-block px-3 py-1 text-sm font-semibold rounded-full
-                                border border-gray-300 bg-white cursor-pointer
-                                transition duration-300 ease-out transform
-                                hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30
-                                dark:border-gray-600 dark:bg-gray-900 dark:hover:bg-gray-800
-                                dark:hover:shadow-pink-400/20
-                                bg-gradient-to-bl from-pink-500 via-gray-700 to-slate-800 
-                                bg-clip-text text-transparent
-                                dark:bg-gradient-to-bl dark:from-pink-400 dark:via-neutral-200 dark:to-slate-400
-                                hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 hover:text-white hover:bg-clip-border">
+                        class="m-2 inline-block px-3 py-1 text-sm font-semibold rounded-full
+       border border-gray-300 bg-white cursor-pointer
+       transition duration-300 ease-out transform
+       hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30
+       dark:border-gray-600 dark:bg-gray-900 dark:hover:bg-gray-800
+       dark:hover:shadow-pink-400/20
+       bg-gradient-to-bl from-pink-500 via-gray-700 to-slate-800 
+       bg-clip-text text-transparent
+       dark:bg-gradient-to-bl dark:from-pink-400 dark:via-neutral-200 dark:to-slate-400
+       hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 hover:text-white hover:bg-clip-border
+       dark:hover:bg-gradient-to-r dark:hover:from-pink-600 dark:hover:to-purple-800 dark:hover:text-neutral-100"
+>
                             @tag.GetTitle()
                         </a>
 
@@ -172,12 +172,14 @@
 </section>
 
 
-  <script>
-    // HERO ANIMATION
-     const titleText = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(jsTitle));
 
-    console.log("------------------");
-    console.log(titleText); // ["Chandra Kanth","Full Stack Engineer"]
+  <script>
+
+        // HERO ANIMATION
+     const titleText = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(jsTitle));
+@* 
+   // console.log("------------------");
+    // console.log(titleText); // ["Chandra Kanth","Full Stack Engineer"] *@
 
     const titleEl = document.getElementById("hero-title");
 

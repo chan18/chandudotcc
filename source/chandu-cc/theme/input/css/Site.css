@@ -3587,6 +3587,10 @@ select {
   background-image: none;
 }
 
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
 .from-pink-500 {
   --tw-gradient-from: #ec4899;
   --tw-gradient-to: rgb(236 72 153 / 0);
@@ -3885,6 +3889,10 @@ select {
   line-height: 1.5;
 }
 
+.leading-relaxed {
+  line-height: 1.625;
+}
+
 .text-transparent {
   color: transparent;
 }
@@ -4081,6 +4089,11 @@ select {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.grayscale {
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -4152,6 +4165,22 @@ select {
   animation: var(--motion-scale-in-animation), var(--motion-translate-in-animation), var(--motion-rotate-in-animation), var(--motion-filter-in-animation), var(--motion-opacity-in-animation), var(--motion-background-color-in-animation), var(--motion-text-color-in-animation), var(--motion-scale-loop-animation), var(--motion-translate-loop-animation), var(--motion-rotate-loop-animation), var(--motion-filter-loop-animation), var(--motion-opacity-loop-animation), var(--motion-background-color-loop-animation), var(--motion-text-color-loop-animation);
 }
 
+.\[--webkit-background-clip\:text\] {
+  --webkit-background-clip: text;
+}
+
+.\[--webkit-text-fill-color\:transparent\] {
+  --webkit-text-fill-color: transparent;
+}
+
+.\[-webkit-background-clip\:text\] {
+  -webkit-background-clip: text;
+}
+
+.\[-webkit-text-fill-color\:transparent\] {
+  -webkit-text-fill-color: transparent;
+}
+
 .dark .custom-shape-divider-bottom-1642627347 .shape-fill {
   fill: #334155;
   /* This will be the color in dark mode */
@@ -4159,6 +4188,11 @@ select {
 
 .after\:content-\[\'\2c \'\]::after {
   --tw-content: ',';
+  content: var(--tw-content);
+}
+
+.last\:after\:content-none:last-child::after {
+  --tw-content: none;
   content: var(--tw-content);
 }
 
@@ -4402,6 +4436,11 @@ select {
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 
+.dark .dark\:border-gray-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
 .dark .dark\:bg-slate-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
@@ -4446,13 +4485,28 @@ select {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.dark .dark\:from-pink-300 {
+  --tw-gradient-from: #f9a8d4;
+  --tw-gradient-to: rgb(249 168 212 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .dark .dark\:via-neutral-200 {
   --tw-gradient-to: rgb(229 229 229 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), #e5e5e5, var(--tw-gradient-to);
 }
 
+.dark .dark\:via-gray-400 {
+  --tw-gradient-to: rgb(156 163 175 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #9ca3af, var(--tw-gradient-to);
+}
+
 .dark .dark\:to-slate-400 {
   --tw-gradient-to: #94a3b8;
+}
+
+.dark .dark\:to-gray-200 {
+  --tw-gradient-to: #e5e7eb;
 }
 
 .dark .dark\:fill-white {
@@ -4530,6 +4584,25 @@ select {
 .dark .dark\:hover\:bg-gray-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:hover\:bg-gradient-to-r:hover {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.dark .dark\:hover\:from-pink-600:hover {
+  --tw-gradient-from: #db2777;
+  --tw-gradient-to: rgb(219 39 119 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.dark .dark\:hover\:to-purple-800:hover {
+  --tw-gradient-to: #6b21a8;
+}
+
+.dark .dark\:hover\:text-neutral-100:hover {
+  --tw-text-opacity: 1;
+  color: rgb(245 245 245 / var(--tw-text-opacity));
 }
 
 .dark .dark\:hover\:shadow-pink-400\/20:hover {
