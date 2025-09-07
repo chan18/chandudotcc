@@ -44,8 +44,8 @@
     });
   
     // Reverting the theme to default when the element with `.js-theme-remove` is clicked
-    themeRemove.addEventListener('click', function () {
-        goSystem();
-    });
+    // themeRemove.addEventListener('click', function () {
+    //     goSystem();
+    // });
 
 

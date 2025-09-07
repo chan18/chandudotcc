@@ -6,6 +6,9 @@ module.exports = {
     content: ["../**/*.{html,cshtml,md,razor}"],
     theme: {
       extend: {
+        textColor: {
+          'gradient': 'transparent',
+        },
         typography: (theme) => ({
           DEFAULT: {
             css: {
