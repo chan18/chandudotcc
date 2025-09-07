@@ -10,8 +10,15 @@ ArchiveOrderDescending: true
 Title: Tags
 ArchiveTitle: => GetString("GroupKey")
 ---
+@{
+    string style = "inline-block px-3 py-1 text-sm font-semibold rounded-full border border-gray-300 bg-white transition duration-300 ease-out transform  dark:border-gray-600 dark:bg-gray-900  bg-gradient-to-bl from-pink-500 via-gray-700 to-slate-800 bg-clip-text text-transparent dark:bg-gradient-to-bl dark:from-pink-400 dark:via-neutral-200 dark:to-slate-400 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30 dark:hover:bg-gray-800 dark:hover:shadow-pink-400/20 hover:bg-gradient-to-tr";
+}
+
 @if (Document.ContainsKey(Keys.GroupKey))
 {
+
+      
+  
     <div class="">
         <div class="container mx-auto">
             <div class="py-4 flex flex-wrap">
@@ -23,10 +30,9 @@ ArchiveTitle: => GetString("GroupKey")
                 {
                     string badgeStyle = Document
                                     .GetString(Keys.GroupKey)
-                                    .Equals(tag.GetTitle(), StringComparison.OrdinalIgnoreCase) ? 
-                                    "shadow-lg shadow-gray-500/50 scale-100 -translate-y-2" 
-                                    : 
-                                    "hover:shadow-lg hover:shadow-gray-500/50 hover:scale-100 hover:-translate-y-2";
+                                    .Equals(tag.GetTitle(), StringComparison.OrdinalIgnoreCase) 
+                                    ? style + " motion-preset-confetti scale-105 shadow-lg shadow-pink-500/30 bg-gray-800 bg-gradient-to-tr dark:shadow-pink-400/20"
+                                    : style + "";
 
                     string postCount = tag
                                     .GetChildren()
@@ -34,14 +40,11 @@ ArchiveTitle: => GetString("GroupKey")
                                     .ToString();
 
                     <a href="@Context.GetLink(tag)" class="shrink-0 flex py-2">
-                        <span class="mr-2 py-1 px-3 rounded-lg
-                    font-bold text-black bg-gray-200
-                    delay-150 duration-300
-                    hover:shadow-lg hover:shadow-gray-500/50 hover:scale-100 hover:-translate-y-2 @badgeStyle">
+                        <span class="mr-2 py-1 px-3 @badgeStyle ">
                              <span class="">
                                  @tag.GetTitle()
                             </span>
-                            <span class="bg-gray-300 p-1">
+                            <span class="">
                                   (@postCount)
                             </span>
                         </span>
@@ -50,7 +53,7 @@ ArchiveTitle: => GetString("GroupKey")
 
             </div>
 
-            <div class="col-md-6 right-border col-sm-height">
+            <div class="col-md-6 right-border col-sm-height motion-preset-fade ">
                 @Html.Partial("/_posts.cshtml", Document)
             </div>
 
@@ -70,19 +73,13 @@ else
                                 .Count()
                                 .ToString();
 
-            <a role="button" href="@Context.GetLink(tag)" class="shrink-0 flex py-2">
-                <span class="mr-2 py-1 px-3 rounded-lg
-                    font-bold text-black bg-gray-200
-                    delay-150 duration-300
-                    hover:shadow-lg hover:shadow-gray-500/50 hover:scale-100 hover:-translate-y-2">
-                    <span class="">
-                        @tag.GetTitle()
-                    </span>
-                    <span class="bg-gray-300 p-1">
-                        (@postCount)
-                    </span>
-                </span>
-            </a>
+           <a role="button" href="@Context.GetLink(tag)" class="shrink-0 flex py-2">
+            <span class="mr-2 py-1 px-3 @style">
+                <span>@tag.GetTitle()</span>
+                <span>(@postCount)</span>
+            </span>
+        </a>
+
 
         }
     </div>
