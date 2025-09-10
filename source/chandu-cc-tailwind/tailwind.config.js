@@ -33,7 +33,8 @@ module.exports = {
       require('@tailwindcss/typography'),
       require('@tailwindcss/forms'),
       require('@tailwindcss/aspect-ratio'),
-      require('tailwindcss-motion')
+      require('tailwindcss-motion'),
+      require('@tailwindcss/line-clamp')
     ],
   }
   
