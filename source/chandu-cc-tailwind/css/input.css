@@ -1,4 +1,7 @@
-﻿@tailwind base;
+﻿@import url('https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka-etoile/iosevka-etoile.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka/iosevka.css');
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -8,3 +11,5 @@
 .dark .custom-shape-divider-bottom-1642627347 .shape-fill {
   fill: #334155;  /* This will be the color in dark mode */
 }
+
+
